@@ -24,11 +24,12 @@
             </nav>
             <div class="icons">
                 <a href="#"><i class="fa fa-heart"></i></a>
-                <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                <a href="products.html"><i class="fa fa-shopping-cart cart" data-count="0"></i></a>
                 <a href="#"><i class="fa fa-user"></i></a>
             </div>
         </header>
         <!--end header-->
+        
         <section class="home" id="home">
             <div class="slide-container active">
                 <div class="slide">
@@ -40,7 +41,7 @@
                             Sunt nam adipisci ipsa officiis Amet pariatur eaque soluta 
                             sit iure neque voluptate.
                         </p>
-                        <a href="#" class="btn">add to cart</a>
+                        <button href="#" class="btn" onclick="toggleCartNotification()">add to cart</button>
                     </div>
                     <div class="image">
                         <img src="img/slide/forum84adidas.png" class="shoe">
@@ -57,7 +58,7 @@
                             Sunt nam adipisci ipsa officiis Amet pariatur eaque soluta 
                             sit iure neque voluptate.
                         </p>
-                        <a href="#" class="btn">add to cart</a>
+                        <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
                     </div>
                     <div class="image">
                         <img src="img/slide/nikeviolet.png" class="shoe">
@@ -74,7 +75,7 @@
                             Sunt nam adipisci ipsa officiis Amet pariatur eaque soluta 
                             sit iure neque voluptate.
                         </p>
-                        <a href="#" class="btn">add to cart</a>
+                        <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
                     </div>
                     <div class="image">
                         <img src="img/slide/nikeblack.png" class="shoe">
@@ -91,7 +92,7 @@
                             Sunt nam adipisci ipsa officiis Amet pariatur eaque soluta 
                             sit iure neque voluptate.
                         </p>
-                        <a href="#" class="btn">add to cart</a>
+                        <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
                     </div>
                     <div class="image">
                         <img src="img/slide/adidasorange.png" class="shoe">
@@ -106,7 +107,7 @@
         <section class="product" id="product">
             <h1 class="heading">latest <span>Products</span></h1>
             <div class="box-container">
-                <div class="box">
+                <div class="fbox" data-name="p-1">
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
@@ -126,13 +127,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="box">
+                <div class="fbox" data-name="p-2">
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
                         <a href="#" class="fa fa-eye"></a>
                     </div>
-                    <div class="content">
+                    <div class="content" >
                         <img src="img/product4/My project (11).png" alt="">
                         <h3>ADIDAS CAMPUS 00S YNUK SHOES</h3>
                         <div class="price">$205 <span>$160</span></div>
@@ -145,13 +146,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="box">
+                <div class="fbox" data-name="p-3">
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
                         <a href="#" class="fa fa-eye"></a>
                     </div>
-                    <div class="content">
+                    <div class="content" >
                         <img src="img/product4/My project (12).png" alt="">
                         <h3>Nike Dunk Low Retro Premium</h3>
                         <div class="price">$199 <span>$112</span></div>
@@ -164,13 +165,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="box">
+                <div class="fbox" data-name="p-4">
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
                         <a href="#" class="fa fa-eye"></a>
                     </div>
-                    <div class="content">
+                    <div class="content" >
                         <img src="img/product4/5-removebg-preview.png" alt="">
                         <h3>Nike SB Zoom Nyjah 3</h3>
                         <div class="price">$212 <span>$150</span></div>
@@ -183,7 +184,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="box">
+                <div class="fbox" data-name="p-5">
                     <div class="icons">
                         <a href="#" class="fa fa-heart"></a>
                         <a href="#" class="fa fa-share"></a>
@@ -202,27 +203,195 @@
                         </div>
                     </div>
                 </div>
-                <div class="box">
-                    <div class="icons">
-                        <a href="#" class="fa fa-heart"></a>
-                        <a href="#" class="fa fa-share"></a>
-                        <a href="#" class="fa fa-eye"></a>
-                    </div>
-                    <div class="content">
-                        <img src="img/product4/8.png" alt="">
-                        <h3>Nike SB Zoom Blazer Low Pro GT</h3>
-                        <div class="price">$200 <span>$150</span></div>
-                        <div class="stars">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
+
+
+        <div class="products-preview">
+            <div class="preview" data-target="p-1">
+               <i class="fas fa-times"></i>
+               <img src="img/product4/My project (9).png" alt="">
+               <h3>adidas SUPERSTAR SHOES</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>( 250 )</span>
+               </div>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+               <div class="price">$194.00</div>
+               <div class="buttons">
+                  <a href="#" class="buy">buy now</a>
+                  <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
+               </div>
+            </div>
+         
+            <div class="preview" data-target="p-2">
+               <i class="fas fa-times"></i>
+               <img src="img/product4/My project (11).png" alt="">
+               <h3>ADIDAS CAMPUS 00S YNUK SHOES</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>( 250 )</span>
+               </div>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+               <div class="price">$205.00</div>
+               <div class="buttons">
+                  <a href="#" class="buy">buy now</a>
+                  <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
+               </div>
+            </div>
+         
+            <div class="preview" data-target="p-3">
+               <i class="fas fa-times"></i>
+               <img src="img/product4/My project (12).png" alt="">
+               <h3>Nike Dunk Low Retro Premium</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>( 250 )</span>
+               </div>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+               <div class="price">$199.00</div>
+               <div class="buttons">
+                  <a href="#" class="buy">buy now</a>
+                  <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
+               </div>
+            </div>
+         
+            <div class="preview" data-target="p-4">
+               <i class="fas fa-times"></i>
+               <img src="img/product4/5-removebg-preview.png" alt="">
+               <h3>Nike SB Zoom Nyjah 3</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>( 250 )</span>
+               </div>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+               <div class="price">$212.00</div>
+               <div class="buttons">
+                  <a href="#" class="buy">buy now</a>
+                  <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
+               </div>
+            </div>
+         
+            <div class="preview" data-target="p-5">
+               <i class="fas fa-times"></i>
+               <img src="img/product4/7.png" alt="">
+               <h3>Nike SB Blazer Low x Doyenne</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>( 250 )</span>
+               </div>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+               <div class="price">$153.00</div>
+               <div class="buttons">
+                  <a href="#" class="buy">buy now</a>
+                  <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
+               </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <form action="">
+        
+                <div class="rowCo">
+        
+                    <div class="colCo">
+        
+                        <h3 class="title">billing address</h3>
+        
+                        <div class="inputBox">
+                            <span>full name :</span>
+                            <input type="text" placeholder="john deo">
+                        </div>
+                        <div class="inputBox">
+                            <span>email :</span>
+                            <input type="email" placeholder="example@example.com">
+                        </div>
+                        <div class="inputBox">
+                            <span>address :</span>
+                            <input type="text" placeholder="room - street - locality">
+                        </div>
+                        <div class="inputBox">
+                            <span>city :</span>
+                            <input type="text" placeholder="mumbai">
+                        </div>
+        
+                        <div class="flex">
+                            <div class="inputBox">
+                                <span>state :</span>
+                                <input type="text" placeholder="india">
+                            </div>
+                            <div class="inputBox">
+                                <span>zip code :</span>
+                                <input type="text" placeholder="123 456">
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                    <div class="colCo">
+        
+                        <h3 class="title">payment</h3>
+        
+                        <div class="inputBox">
+                            <span>cards accepted :</span>
+                            <img src="img/card_img.png" alt="">
+                        </div>
+                        <div class="inputBox">
+                            <span>name on card :</span>
+                            <input type="text" placeholder="mr. john deo">
+                        </div>
+                        <div class="inputBox">
+                            <span>credit card number :</span>
+                            <input type="number" placeholder="1111-2222-3333-4444">
+                        </div>
+                        <div class="inputBox">
+                            <span>exp month :</span>
+                            <input type="text" placeholder="january">
+                        </div>
+        
+                        <div class="flex">
+                            <div class="inputBox">
+                                <span>exp year :</span>
+                                <input type="number" placeholder="2022">
+                            </div>
+                            <div class="inputBox">
+                                <span>CVV :</span>
+                                <input type="text" placeholder="1234">
+                            </div>
+                        </div>
+        
+                    </div>
+            
+                </div>
+        
+                <input type="submit" value="proceed to checkout" class="submit-btn">
+        
+            </form>
+        
+        </div>    
+         
         <!--end product-->
         <section class="featured" id="fearured">
             <h1 class="heading">New <span>Product</span></h1>
@@ -252,23 +421,23 @@
                         Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
                     </p>
                     <div class="price">$90 <span>$120</span></div>
-                    <a href="#" class="btn">add to cart</a>
+                    <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
                 </div>
             </div>
             <div class="row">
                 <div class="image-container">
                     <div class="small-image">
-                        <img src="img/product2/1.jpg" alt="" class="featured-image-2">
-                        <img src="img/product2/2.jpg" alt="" class="featured-image-2">
-                        <img src="img/product2/3.jpg" alt="" class="featured-image-2">
-                        <img src="img/product2/4.jpg" alt="" class="featured-image-2">
+                        <img src="img/product2/main.webp" alt="" class="featured-image-2">
+                        <img src="img/product2/back1.webp" alt="" class="featured-image-2">
+                        <img src="img/product2/close1.webp" alt="" class="featured-image-2">
+                        <img src="img/product2/front1.webp" alt="" class="featured-image-2">
                     </div>
                     <div class="big-image">
-                        <img src="img/product2/1.jpg" alt="" class="big-image-2">
+                        <img src="img/product2/main.webp" alt="" class="big-image-2">
                     </div>
                 </div>
                 <div class="content">
-                    <h3>new nike airmac shoes</h3>
+                    <h3>SUPERSTAR SHOES</h3>
                     <div class="stars">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -281,7 +450,7 @@
                         Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
                     </p>
                     <div class="price">$120 <span>$160</span></div>
-                    <a href="#" class="btn">add to cart</a>
+                    <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
                 </div>
             </div>
             <div class="row">
@@ -310,7 +479,7 @@
                         Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
                     </p>
                     <div class="price">$80 <span>$140</span></div>
-                    <a href="#" class="btn">add to cart</a>
+                    <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
                 </div>
             </div>
         </section>
@@ -350,12 +519,43 @@
                         <i class="fa fa-star"></i>
                     </div>
                 </div>
+                <div class="box">
+                    <img src="img/team/pol.jpg" alt="">
+                    <h3>Paul Jamin
+                    </h3>
+                    <p>
+                        I am a documentator, I possess a deep understanding of our ecommerce website's architecture, functionalities, and features.
+                    </p>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <div class="box">
+                    <img src="img/team/abbu.jpg" alt="">
+                    <h3>Jericho Abbu
+                    </h3>
+                    <p>
+                        I am a project manager with a passion for driving successful outcomes and delivering impactful results. 
+                        I am dedicated to ensuring the smooth execution of projects from initiation to completion.
+                    </p>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
             </div>
         </section>
         <!--end blog-->
         <section class="news" id="news">
             <div class="content">
-                <h3>contact us</h3>
+                <h3>News Letter</h3>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Fuga sed itaque ducimus maxime facere nihil expedita non sunt? Nostrum, voluptatem?
@@ -367,57 +567,67 @@
             </div>
         </section>
         <!--end news-->
-        <footer class="footer-distributed">
-
-            <div class="footer-left">
-                <h3><span>Sol</span>ina</h3>
-    
-                <p class="footer-links">
-                    <a href="#">Home</a>
-                    |
-                    <a href="#">Contact Us</a>
-                    |
-                    <a href="#">About us
-                    </a>
-                    |
-                    <a href="#">Blog</a>
-                </p>
-    
-                <p class="footer-company-name">Copyright © 2023 <strong>SOLINA</strong> All rights reserved</p>
-            </div>
-    
-            <div class="footer-center">
-                <div>
-                    <i class="fa fa-map-marker"></i>
-                    <p><span>Philippines</span>
-                        CDO</p>
-                </div>
-    
-                <div>
-                    <i class="fa fa-phone"></i>
-                    <p>+975 **5*07*</p>
-                </div>
-                <div>
-                    <i class="fa fa-envelope"></i>
-                    <p><a href="#">contact.solina@gmail.com</a></p>
-                </div>
-            </div>
-            <div class="footer-right">
-                <p class="footer-company-about">
-                    <span>About the company</span>
-                    <strong>Solina</strong> is an e-commerce website that sells Nike and Adidas shoes. 
+        <footer>
+      <div class="main-content">
+        <div class="left box">
+          <h2>About us</h2>
+          <div class="content">
+            <p>
+            <strong>Solina</strong> Solina is an e-commerce website that sells Nike and Adidas shoes. 
                     Solina is committed to providing customers with high-quality, stylish, and durable shoes at affordable prices. The company values customer 
                     satisfaction and aims to offer the best possible service.
-                </p>
-                <div class="footer-icons">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                </div>
+            </p>
+            <div class="social">
+              <a href="https://facebook.com/coding.np"><span class="fab fa-facebook-f"></span></a>
+              <a href="#"><span class="fab fa-twitter"></span></a>
+              <a href="https://instagram.com/coding.np"><span class="fab fa-instagram"></span></a>
+              <a href="https://youtube.com/c/codingnepal"><span class="fab fa-youtube"></span></a>
             </div>
-        </footer>
+          </div>
+        </div>
+        <div class="center box">
+          <h2>Address</h2>
+          <div class="content">
+            <div class="place">
+              <span class="fas fa-map-marker-alt"></span>
+              <span class="text">Philippines, CDO</span>
+            </div>
+            <div class="phone">
+              <span class="fas fa-phone-alt"></span>
+              <span class="text">+975-1351823</span>
+            </div>
+            <div class="email">
+              <span class="fas fa-envelope"></span>
+              <span class="text">contact.solina@gmail.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="right box">
+          <h2>Contact us</h2>
+          <div class="content">
+            <form action="#">
+              <div class="email">
+                <div class="text">Email *</div>
+                <input type="email" required>
+              </div>
+              <div class="msg">
+                <div class="text">Message *</div>
+                <textarea rows="2" cols="25" required></textarea>
+              </div>
+              <button class="sub">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <center>
+          <span class="credit">Created By <a href="#"><span>Sol</span>ina</a> | </span>
+          <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
+        </center>
+      </div>
+    </footer>
     </body>
 </html>
 
 <script src="js/script.js"></script>
+<script src="js/app.js"></script>
