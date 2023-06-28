@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
     <title>Document</title>
     <link rel="stylesheet" href="css/products.css">
 </head>
-<body class="">
-    
+<body>
+
+    <!-- Container/Content-->
     <div class="container">
         <header>
-            <h1>PRODUCTS</h1>
+            <a href="index.html"><i class="fa-solid fa-arrow-left"></i></a>
             <div class="shopping">
                 <img src="img/image/shopping.svg">
                 <span class="quantity">0</span>
             </div>
         </header>
 
+        <div class="title" id="title">PRODUCTS</div>
         <div class="list"></div>
         <div class="payment" id="payment"></div>
     </div>
@@ -26,17 +30,153 @@
         <ul class="listCard">
         </ul>
         <div class="checkOut " >
-            <a href="#payment" class="total" id="total">0</a>
+            <a  class="total" id="total" onclick="startTimeout()">0</a>
             
             <div class="closeShopping">Close</div>
         </div>
         
     </div>
+
+    <!-- Overlay and Payment Form -->
+    <div class="overlay" id="overlay">
+        <img src="img/loading1.gif" class="loading-icon" alt="Loading...">
+      </div>
+    
+    <div class="modal" id="myModal">
+      <div class="container2" >
+            <div class="form">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="rowCo">
+                    <div class="colCo">
+                        <h3 class="title">billing address</h3>
+                        <div class="inputBox">
+                            <span>full name :</span>
+                            <input type="text" placeholder="trexy mae">
+                        </div>
+                        <div class="inputBox">
+                            <span>email :</span>
+                            <input type="email" placeholder="example@example.com">
+                        </div>
+                        <div class="inputBox">
+                            <span>address :</span>
+                            <input type="text" placeholder="room - street - locality">
+                        </div>
+                        <div class="inputBox">
+                            <span>city :</span>
+                            <input type="text" placeholder="manila">
+                        </div>
+
+                        <div class="flex">
+                            <div class="inputBox">
+                                <span>state :</span>
+                                <input type="text" placeholder="philippines">
+                            </div>
+                            <div class="inputBox">
+                                <span>zip code :</span>
+                                <input type="text" placeholder="123 456">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="colCo">
+                        <h3 class="title">payment</h3>
+                        <div class="inputBox">
+                            <span>cards accepted :</span>
+                            <img src="img/card_img.png" alt="">
+                        </div>
+                        <div class="inputBox">
+                            <span>name on card :</span>
+                            <input type="text" placeholder="ms. trexy s">
+                        </div>
+                        <div class="inputBox">
+                            <span>credit card number :</span>
+                            <input type="number" placeholder="1111-2222-3333-4444">
+                        </div>
+                        <div class="inputBox">
+                            <span>exp month :</span>
+                            <input type="text" placeholder="january">
+                        </div>
+                        <div class="flex">
+                            <div class="inputBox">
+                                <span>exp year :</span>
+                                <input type="number" placeholder="2022">
+                            </div>
+                            <div class="inputBox">
+                                <span>CVV :</span>
+                                <input type="text" placeholder="1234">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="checkbut" class="submit-btn" onclick="showreceipt()">proceed to checkout</button>
+                
+            </div>
+            
+        </div>
+    </div>
+     <!-- FOOTER SECTION -->
+     <footer>
+        <div class="main-content">
+            <div class="left box">
+                <h2>About us</h2>
+                <div class="content">
+                    <p>
+                    <strong>Solina</strong> is an e-commerce website that sells Nike and Adidas shoes. 
+                            Solina is committed to providing customers with high-quality, stylish, and durable shoes at affordable prices. The company values customer 
+                            satisfaction and aims to offer the best possible service.
+                    </p>
+                    <div class="social">
+                        <a href="https://facebook.com/coding.np"><span class="fab fa-facebook-f"></span></a>
+                        <a href="#"><span class="fab fa-twitter"></span></a>
+                        <a href="https://instagram.com/coding.np"><span class="fab fa-instagram"></span></a>
+                        <a href="https://youtube.com/c/codingnepal"><span class="fab fa-youtube"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="center box">
+                <h2>Address</h2>
+                <div class="content">
+                    <div class="place">
+                        <span class="fas fa-map-marker-alt"></span>
+                        <span class="text">Philippines, CDO</span>
+                    </div>
+                    <div class="phone">
+                        <span class="fas fa-phone-alt"></span>
+                        <span class="text">+975-1351823</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">contact.solina@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+            <div class="right box">
+                <h2>Contact us</h2>
+                <div class="content">
+                    <form action="#">
+                    <div class="email">
+                        <div class="text">Email *</div>
+                        <input type="email" required>
+                    </div>
+                    <div class="msg">
+                        <div class="text">Message *</div>
+                        <textarea rows="2" cols="25" required></textarea>
+                    </div>
+                    <button class="sub">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <center>
+            <span class="credit">Created By <a href="#"><span>Sol</span>ina</a> | </span>
+            <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
+            </center>
+        </div>
+    </footer>
+
+    <div id="receiptContainer"></div>
     
    
-    
-    
-
     <script src="js/app.js"></script>
 </body>
 </html>

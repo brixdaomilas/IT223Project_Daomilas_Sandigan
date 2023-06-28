@@ -9,9 +9,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Fira+Sans&family=Hind+Siliguri:wght@300&family=Manrope:wght@800&family=Montserrat:wght@100&family=Poppins&family=Rampart+One&family=Sono:wght@600&family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
+        <script src="./js/scrollreveal.min.js"></script>
+
 
     </head>
     <body>
+        <!-- HEADER -->
         <header>
             <div id="menu-bar" class="fa fa-bars"></div>
             <a href="#" class="logo"><span>Sol</span>ina</a>
@@ -29,7 +32,8 @@
             </div>
         </header>
         <!--end header-->
-        
+
+        <!-- HOME -->
         <section class="home" id="home">
             <div class="slide-container active">
                 <div class="slide">
@@ -37,11 +41,11 @@
                         <span>Adidas LOW CLASSIC SHOES</span>
                         <h3>Adidas FORUM 84 </h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit 
-                            Sunt nam adipisci ipsa officiis Amet pariatur eaque soluta 
-                            sit iure neque voluptate.
+                            It's all vintage vibes in these adidas Forum 84 Low shoes. They add a laid-back feel to any casual look. 
+                            Premium leather and suede on the upper keep this classic shoe looking polished. The contrast textile tongue 
+                            and embroidered Trefoil stand out in true OG style.
                         </p>
-                        <button href="#" class="btn" onclick="toggleCartNotification()">add to cart</button>
+                        <button href="#" class="btn" onclick="openModal('o1')" data-prod="o1" id="atc">view item</button>
                     </div>
                     <div class="image">
                         <img src="img/slide/forum84adidas.png" class="shoe">
@@ -54,11 +58,10 @@
                         <span>Nike Air Shoes</span>
                         <h3>Nike Air Force 1 Low SP x UNDERCOVER</h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit 
-                            Sunt nam adipisci ipsa officiis Amet pariatur eaque soluta 
-                            sit iure neque voluptate.
+                            UNDERCOVER's Jun Takahashi redefines the original hoops look for the future. With utilitarian details like 
+                            its water-resistant GORE-TEX sleeve and supportive plastic heel piece, it brings new meaning to nothin'-but-net style.
                         </p>
-                        <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
+                        <button href="#" class="btn" onclick="openModal('o2')"  id="atc">view item</button>
                     </div>
                     <div class="image">
                         <img src="img/slide/nikeviolet.png" class="shoe">
@@ -69,13 +72,13 @@
                 <div class="slide">
                     <div class="content">
                         <span>Nike Sport Shoes</span>
-                        <h3>Nike SB Zoom Blazer Mid x Mason Silva</h3>
+                        <h3>Nike SB Zoom Blazer Mid x Mason </h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit 
-                            Sunt nam adipisci ipsa officiis Amet pariatur eaque soluta 
-                            sit iure neque voluptate.
+                            Self-portrait with a skate shoe. Transcending every artistic movement is the same elusive goal: to capture one's true essence. 
+                            The Zoom Blazer Mid x Mason Silva does just that. A staple of the skate scene way before he won Skater of the Year in 2020, 
+                            Mason's design encapsulates ... well, Mason.
                         </p>
-                        <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
+                        <button href="#" class="btn" onclick="openModal('o3') " id="atc">view item</button>
                     </div>
                     <div class="image">
                         <img src="img/slide/nikeblack.png" class="shoe">
@@ -88,11 +91,10 @@
                         <span>Adidas Classic Shoes</span>
                         <h3>Adidas CAMPUS 00S SHOES</h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit 
-                            Sunt nam adipisci ipsa officiis Amet pariatur eaque soluta 
-                            sit iure neque voluptate.
+                            Although they made their debut on the hardwood, the adidas Campus shoes were quickly adopted just about everywhere else. 
+                            With this pair, we move the iconic silhouette in another direction and add modern materials, colours and proportions
                         </p>
-                        <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
+                        <button href="#" class="btn" onclick="openModal('o4') " id="atc">view item</button>
                     </div>
                     <div class="image">
                         <img src="img/slide/adidasorange.png" class="shoe">
@@ -104,6 +106,175 @@
             <div id="next" class="fa fa-angle-right" onclick="next();"></div>
         </section>
         <!--end home-->
+        
+        <!-- OVERLAY HOME -->
+        <div class="overlay" id="overlay">
+            <div class="rowM" data-tar="o1">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="image-container1" >
+                    <div class="small-image1">
+                        <img src="img/overlayimg/prod1-1.jpg" alt="" class="overlay-featured-image-1">
+                        <img src="img/overlayimg/prod1-2.jpg" alt="" class="overlay-featured-image-1">
+                        <img src="img/overlayimg/prod1-3.jpg" alt="" class="overlay-featured-image-1">
+                        <img src="img/overlayimg/prod1-4.jpg" alt="" class="overlay-featured-image-1">
+                    </div>
+                    <div class="big-image1">
+                        <img src="img/overlayimg/prod1-1.jpg" alt="" class="overlay-big-image-1">
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Adidas Forum 84</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                    </p>
+                    <div class="price">10,928 <span>12,999</span></div>
+
+                    <h3 id="sizetitle">Size EU</h3>
+
+                    <div class="size">
+                        <div class="square">38</div>
+                        <div class="square">39</div>
+                        <div class="square">40</div>
+                        <div class="square">41</div>
+                    </div>
+
+                    <button  class="btn" onclick="toggleCartNotification() "><a href="products.html">GO TO CART</a></button>
+                </div>
+            </div>
+            <div class="rowM" data-tar="o2">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="image-container1" >
+                    <div class="small-image1">
+                        <img src="img/overlayimg/prod2-1.jpeg" alt="" class="overlay-featured-image-2">
+                        <img src="img/overlayimg/prod2-2.jpeg" alt="" class="overlay-featured-image-2">
+                        <img src="img/overlayimg/prod2-3.jpeg" alt="" class="overlay-featured-image-2">
+                        <img src="img/overlayimg/prod2-4.jpeg" alt="" class="overlay-featured-image-2">
+                    </div>
+                    <div class="big-image1">
+                        <img src="img/overlayimg/prod2-1.jpeg
+                        " alt="" class="overlay-big-image-2">
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>NIKE AIR FORCE 1 LOW SP X UNDERCOVER
+                    </h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                    </p>
+                    <div class="price">9,532 <span>10,299</span></div>
+
+                    <h3 id="sizetitle">Size EU</h3>
+
+                    <div class="size">
+                        <div class="square">38</div>
+                        <div class="square">39</div>
+                        <div class="square">40</div>
+                        <div class="square">41</div>
+                    </div>
+
+                    <button href="#" class="btn" onclick="toggleCartNotification()"><a href="products.html">GO TO CART</a></button>
+                </div>
+            </div>
+            <div class="rowM" data-tar="o3">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="image-container1" >
+                    <div class="small-image1">
+                        <img src="img/overlayimg/prod3-1.jpeg" alt="" class="overlay-featured-image-3">
+                        <img src="img/overlayimg/prod3-2.jpeg" alt="" class="overlay-featured-image-3">
+                        <img src="img/overlayimg/prod3-3.jpeg" alt="" class="overlay-featured-image-3">
+                        <img src="img/overlayimg/prod3-4.jpeg" alt="" class="overlay-featured-image-3">
+                    </div>
+                    <div class="big-image1">
+                        <img src="img/overlayimg/prod3-1.jpeg" alt="" class="overlay-big-image-3">
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>NIKE SB ZOOM BLAZER MID X MASON SILVA</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                    </p>
+                    <div class="price">6,214 <span>8,299</span></div>
+
+                    <h3 id="sizetitle">Size EU</h3>
+
+                    <div class="size">
+                        <div class="square">38</div>
+                        <div class="square">39</div>
+                        <div class="square">40</div>
+                        <div class="square">41</div>
+                    </div>
+
+                    <button href="#" class="btn" onclick="toggleCartNotification() "><a href="products.html">GO TO CART</a></button>
+                </div>
+            </div>
+            <div class="rowM" data-tar="o4">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="image-container1" >
+                    <div class="small-image1">
+                        <img src="img/overlayimg/prod4-1.jpg" alt="" class="overlay-featured-image-4">
+                        <img src="img/overlayimg/prod4-2.jpg" alt="" class="overlay-featured-image-4">
+                        <img src="img/overlayimg/prod4-3.jpg" alt="" class="overlay-featured-image-4">
+                        <img src="img/overlayimg/prod4-4.jpg" alt="" class="overlay-featured-image-4">
+                    </div>
+                    <div class="big-image1">
+                        <img src="img/overlayimg/prod4-1.jpg" alt="" class="overlay-big-image-4">
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>ADIDAS CAMPUS 00S SHOES</h3>
+                    <div class="stars">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                        Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                    </p>
+                    <div class="price">10,241 <span>11,239</span></div>
+
+                    <h3 id="sizetitle">Size EU</h3>
+
+                    <div class="size">
+                        <div class="square">38</div>
+                        <div class="square">39</div>
+                        <div class="square">40</div>
+                        <div class="square">41</div>
+                    </div>
+                    <button href="#" class="btn" onclick="toggleCartNotification() "><a href="products.html">GO TO CART</a></button>
+                </div>
+            </div>
+        </div>
+
+        <!--end overlay-->
+
+        <!-- PRODUCT SECTION -->
         <section class="product" id="product">
             <h1 class="heading">latest <span>Products</span></h1>
             <div class="box-container">
@@ -206,11 +377,12 @@
                 
             </div>
         </section>
+        <!--end product-->
 
-
+        <!-- PRODUCT PREVIEW MODAL  -->
         <div class="products-preview">
             <div class="preview" data-target="p-1">
-               <i class="fas fa-times"></i>
+               <i class="fas fa-times" id="times"></i>
                <img src="img/product4/My project (9).png" alt="">
                <h3>adidas SUPERSTAR SHOES</h3>
                <div class="stars">
@@ -222,7 +394,7 @@
                   <span>( 250 )</span>
                </div>
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-               <div class="price">$194.00</div>
+               <div class="price">7,999</div>
                <div class="buttons">
                   <a href="#" class="buy">buy now</a>
                   <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
@@ -230,7 +402,7 @@
             </div>
          
             <div class="preview" data-target="p-2">
-               <i class="fas fa-times"></i>
+               <i class="fas fa-times" id="times"></i>
                <img src="img/product4/My project (11).png" alt="">
                <h3>ADIDAS CAMPUS 00S YNUK SHOES</h3>
                <div class="stars">
@@ -242,7 +414,7 @@
                   <span>( 250 )</span>
                </div>
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-               <div class="price">$205.00</div>
+               <div class="price">11,430</div>
                <div class="buttons">
                   <a href="#" class="buy">buy now</a>
                   <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
@@ -250,7 +422,7 @@
             </div>
          
             <div class="preview" data-target="p-3">
-               <i class="fas fa-times"></i>
+               <i class="fas fa-times" id="times"></i>
                <img src="img/product4/My project (12).png" alt="">
                <h3>Nike Dunk Low Retro Premium</h3>
                <div class="stars">
@@ -270,7 +442,7 @@
             </div>
          
             <div class="preview" data-target="p-4">
-               <i class="fas fa-times"></i>
+               <i class="fas fa-times" id="times"></i>
                <img src="img/product4/5-removebg-preview.png" alt="">
                <h3>Nike SB Zoom Nyjah 3</h3>
                <div class="stars">
@@ -282,7 +454,7 @@
                   <span>( 250 )</span>
                </div>
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-               <div class="price">$212.00</div>
+               <div class="price">11,821</div>
                <div class="buttons">
                   <a href="#" class="buy">buy now</a>
                   <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
@@ -290,7 +462,7 @@
             </div>
          
             <div class="preview" data-target="p-5">
-               <i class="fas fa-times"></i>
+               <i class="fas fa-times" id="times"></i>
                <img src="img/product4/7.png" alt="">
                <h3>Nike SB Blazer Low x Doyenne</h3>
                <div class="stars">
@@ -302,98 +474,18 @@
                   <span>( 250 )</span>
                </div>
                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
-               <div class="price">$153.00</div>
+               <div class="price">8,531</div>
                <div class="buttons">
                   <a href="#" class="buy">buy now</a>
                   <a href="#" class="cart" onclick="toggleCartNotification()">add to cart</a>
                </div>
             </div>
         </div>
-
-        <div class="container">
-
-            <form action="">
+        <!--end product review -->
         
-                <div class="rowCo">
-        
-                    <div class="colCo">
-        
-                        <h3 class="title">billing address</h3>
-        
-                        <div class="inputBox">
-                            <span>full name :</span>
-                            <input type="text" placeholder="john deo">
-                        </div>
-                        <div class="inputBox">
-                            <span>email :</span>
-                            <input type="email" placeholder="example@example.com">
-                        </div>
-                        <div class="inputBox">
-                            <span>address :</span>
-                            <input type="text" placeholder="room - street - locality">
-                        </div>
-                        <div class="inputBox">
-                            <span>city :</span>
-                            <input type="text" placeholder="mumbai">
-                        </div>
-        
-                        <div class="flex">
-                            <div class="inputBox">
-                                <span>state :</span>
-                                <input type="text" placeholder="india">
-                            </div>
-                            <div class="inputBox">
-                                <span>zip code :</span>
-                                <input type="text" placeholder="123 456">
-                            </div>
-                        </div>
-        
-                    </div>
-        
-                    <div class="colCo">
-        
-                        <h3 class="title">payment</h3>
-        
-                        <div class="inputBox">
-                            <span>cards accepted :</span>
-                            <img src="img/card_img.png" alt="">
-                        </div>
-                        <div class="inputBox">
-                            <span>name on card :</span>
-                            <input type="text" placeholder="mr. john deo">
-                        </div>
-                        <div class="inputBox">
-                            <span>credit card number :</span>
-                            <input type="number" placeholder="1111-2222-3333-4444">
-                        </div>
-                        <div class="inputBox">
-                            <span>exp month :</span>
-                            <input type="text" placeholder="january">
-                        </div>
-        
-                        <div class="flex">
-                            <div class="inputBox">
-                                <span>exp year :</span>
-                                <input type="number" placeholder="2022">
-                            </div>
-                            <div class="inputBox">
-                                <span>CVV :</span>
-                                <input type="text" placeholder="1234">
-                            </div>
-                        </div>
-        
-                    </div>
-            
-                </div>
-        
-                <input type="submit" value="proceed to checkout" class="submit-btn">
-        
-            </form>
-        
-        </div>    
-         
-        <!--end product-->
+        <!-- FEATURED SECTION -->
         <section class="featured" id="fearured">
+            
             <h1 class="heading">New <span>Product</span></h1>
             <div class="row">
                 <div class="image-container">
@@ -417,11 +509,13 @@
                         <i class="fa fa-star"></i>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                        All day, every day, the popular 3MC from adidas returns with a new high-abrasion canvas upper for added durability.
+                        Minimalist but made for performance, the 3MC offers a grippy Geoflex vulcanised outsole with Gazelle-textured foxing 
+                        for optimal board feel and control. Sleek, simple and designed for skateboarding, the 3MC offers a refined fit and grippy 
+                        board feel, session after session.
                     </p>
-                    <div class="price">$90 <span>$120</span></div>
-                    <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
+                    <div class="price">5,018 <span>7,399</span></div>
+                    <button href="#" class="btn"><a href="products.html">GO TO CART</a></button>
                 </div>
             </div>
             <div class="row">
@@ -446,11 +540,12 @@
                         <i class="fa fa-star"></i>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                        Originally made for basketball courts in the '70s. Celebrated by hip hop royalty in the '80s. The adidas Superstar
+                        shoe is now a lifestyle staple for streetwear enthusiasts. The world-famous shell toe feature remains, providing 
+                        style and protection. 
                     </p>
-                    <div class="price">$120 <span>$160</span></div>
-                    <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
+                    <div class="price">6,691 <span>7,999</span></div>
+                    <button href="#" class="btn" onclick="toggleCartNotification() "><a href="products.html">GO TO CART</a></button>
                 </div>
             </div>
             <div class="row">
@@ -475,15 +570,18 @@
                         <i class="fa fa-star"></i>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Fugit officiis omnis quo laboriosam velit culpa ex illo, error enim nostrum?
+                        For nearly 40 years, the Forum has been a staple of the adidas lineup. This pair of the iconic shoes stays 
+                        true to the original with signature 3-Stripes and the classic cross overlay. Added pops of colour and nylon 
+                        details accent a clean leather upper for a versatile look that's as simple and elegant as it is bold and expressive.
                     </p>
-                    <div class="price">$80 <span>$140</span></div>
-                    <button href="#" class="btn" onclick="toggleCartNotification() ">add to cart</button>
+                    <div class="price">4,460 <span>6,299</span></div>
+                    <button href="#" class="btn" onclick="toggleCartNotification() "><a href="products.html">GO TO CART</a></button>
                 </div>
             </div>
         </section>
         <!--end featured-->
+
+        <!-- BLOG SECTION -->
         <section class="blog" id="blog">
             <h1 class="heading">Team <span>Weblog</span></h1>
             <div class="box-container">
@@ -508,23 +606,8 @@
                     <h3>Trexy Sandigan
                     </h3>
                     <p>
-                        I am a graphic designer with experience in creating engaging visual content for various mediums such as print, 
-                        digital, and social media. 
-                    </p>
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                </div>
-                <div class="box">
-                    <img src="img/team/pol.jpg" alt="">
-                    <h3>Paul Jamin
-                    </h3>
-                    <p>
                         I am a documentator, I possess a deep understanding of our ecommerce website's architecture, functionalities, and features.
+
                     </p>
                     <div class="stars">
                         <i class="fa fa-star"></i>
@@ -534,31 +617,15 @@
                         <i class="fa fa-star"></i>
                     </div>
                 </div>
-                <div class="box">
-                    <img src="img/team/abbu.jpg" alt="">
-                    <h3>Jericho Abbu
-                    </h3>
-                    <p>
-                        I am a project manager with a passion for driving successful outcomes and delivering impactful results. 
-                        I am dedicated to ensuring the smooth execution of projects from initiation to completion.
-                    </p>
-                    <div class="stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                </div>
-            </div>
         </section>
         <!--end blog-->
+
+        <!-- NEWS SECTION -->
         <section class="news" id="news">
             <div class="content">
                 <h3>News Letter</h3>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Fuga sed itaque ducimus maxime facere nihil expedita non sunt? Nostrum, voluptatem?
+                    Subscribe to our Newsletter and never miss latest updates!
                 </p>
                 <form action="">
                     <input type="email" placeholder="please enter your email" class="email">
@@ -567,65 +634,67 @@
             </div>
         </section>
         <!--end news-->
+        
+        <!-- FOOTER SECTION -->
         <footer>
-      <div class="main-content">
-        <div class="left box">
-          <h2>About us</h2>
-          <div class="content">
-            <p>
-            <strong>Solina</strong> Solina is an e-commerce website that sells Nike and Adidas shoes. 
-                    Solina is committed to providing customers with high-quality, stylish, and durable shoes at affordable prices. The company values customer 
-                    satisfaction and aims to offer the best possible service.
-            </p>
-            <div class="social">
-              <a href="https://facebook.com/coding.np"><span class="fab fa-facebook-f"></span></a>
-              <a href="#"><span class="fab fa-twitter"></span></a>
-              <a href="https://instagram.com/coding.np"><span class="fab fa-instagram"></span></a>
-              <a href="https://youtube.com/c/codingnepal"><span class="fab fa-youtube"></span></a>
+            <div class="main-content">
+                <div class="left box">
+                    <h2>About us</h2>
+                    <div class="content">
+                        <p>
+                        <strong>Solina</strong> is an e-commerce website that sells Nike and Adidas shoes. 
+                                Solina is committed to providing customers with high-quality, stylish, and durable shoes at affordable prices. The company values customer 
+                                satisfaction and aims to offer the best possible service.
+                        </p>
+                        <div class="social">
+                            <a href="https://facebook.com/coding.np"><span class="fab fa-facebook-f"></span></a>
+                            <a href="#"><span class="fab fa-twitter"></span></a>
+                            <a href="https://instagram.com/coding.np"><span class="fab fa-instagram"></span></a>
+                            <a href="https://youtube.com/c/codingnepal"><span class="fab fa-youtube"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center box">
+                    <h2>Address</h2>
+                    <div class="content">
+                        <div class="place">
+                            <span class="fas fa-map-marker-alt"></span>
+                            <span class="text">Philippines, CDO</span>
+                        </div>
+                        <div class="phone">
+                            <span class="fas fa-phone-alt"></span>
+                            <span class="text">+975-1351823</span>
+                        </div>
+                        <div class="email">
+                            <span class="fas fa-envelope"></span>
+                            <span class="text">contact.solina@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right box">
+                    <h2>Contact us</h2>
+                    <div class="content">
+                        <form action="#">
+                        <div class="email">
+                            <div class="text">Email *</div>
+                            <input type="email" required>
+                        </div>
+                        <div class="msg">
+                            <div class="text">Message *</div>
+                            <textarea rows="2" cols="25" required></textarea>
+                        </div>
+                        <button class="sub">Send</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="center box">
-          <h2>Address</h2>
-          <div class="content">
-            <div class="place">
-              <span class="fas fa-map-marker-alt"></span>
-              <span class="text">Philippines, CDO</span>
+            <div class="bottom">
+                <center>
+                <span class="credit">Created By <a href="#"><span>Sol</span>ina</a> | </span>
+                <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
+                </center>
             </div>
-            <div class="phone">
-              <span class="fas fa-phone-alt"></span>
-              <span class="text">+975-1351823</span>
-            </div>
-            <div class="email">
-              <span class="fas fa-envelope"></span>
-              <span class="text">contact.solina@gmail.com</span>
-            </div>
-          </div>
-        </div>
-        <div class="right box">
-          <h2>Contact us</h2>
-          <div class="content">
-            <form action="#">
-              <div class="email">
-                <div class="text">Email *</div>
-                <input type="email" required>
-              </div>
-              <div class="msg">
-                <div class="text">Message *</div>
-                <textarea rows="2" cols="25" required></textarea>
-              </div>
-              <button class="sub">Send</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="bottom">
-        <center>
-          <span class="credit">Created By <a href="#"><span>Sol</span>ina</a> | </span>
-          <span class="far fa-copyright"></span><span> 2023 All rights reserved.</span>
-        </center>
-      </div>
-    </footer>
+        </footer>
     </body>
 </html>
 

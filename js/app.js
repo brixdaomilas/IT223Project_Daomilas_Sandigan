@@ -6,6 +6,8 @@ let body = document.querySelector('body');
 let total = document.querySelector('.total');
 let quantity = document.querySelector('.quantity');
 let payment = document.querySelector('.payment');
+let submit = document.querySelector('.submit-btn')
+const modal = document.getElementById('myModal');
 
 
 openShopping.addEventListener('click', ()=>{
@@ -36,20 +38,20 @@ let products = [
     },
     {
         id: 4,
-        name: 'NIKE SB ZOOM BLAZER MID X MASON SILVA',
-        image: 'nikeblack.png',
+        name: 'NIKE SB ZOOM BLAZER MID X MASON',
+        image: 'nikeeeb.png',
         price: 6214
     },
     {
         id: 5,
         name: 'ADIDAS SUPERSTAR SHOES',
-        image: 'adidasblack.png',
+        image: 'blackad.png',
         price: 7999
     },
     {
         id: 6,
         name: 'ADIDAS CAMPUS 00S YNUK SHOES',
-        image: 'adidasbrown.png',
+        image: 'ad.png',
         price: 11430
     },
     {
@@ -88,152 +90,169 @@ let products = [
         image: 'peachadidas.png',
         price: 4460
     }
+    
 ];
 let listCards  = [];
+
 function initApp(){
     products.forEach((value, key) =>{
         let newDiv = document.createElement('div');
         newDiv.classList.add('item');
         newDiv.innerHTML = `
-            <img src="img/image/${value.image}">
-            <div class="title">${value.name}</div>
-            <div class="price">${value.price.toLocaleString()}</div>
-            <button onclick="addToCard(${key})">Add To Cart</button>`;
+            <div class="sec1"><img src="img/image/${value.image}"></div>
+            <div class="title" id="name">${value.name}</div>
+            <div class="sec2">
+            <div class="price">₱${value.price.toLocaleString()}</div>
+            <button onclick="addToCard(${key})"><i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+            `;
         list.appendChild(newDiv);
     })
 }
+
 initApp();
-function addToCard(key){
-    if(listCards[key] == null){
-        // copy product form list to list card
-        listCards[key] = JSON.parse(JSON.stringify(products[key]));
-        listCards[key].quantity = 1;
+
+function addToCard(key) {
+    if (listCards[key] == null) {
+      listCards[key] = JSON.parse(JSON.stringify(products[key]));
+      listCards[key].quantity = 1;
+      listCards[key].defaultPrice = products[key].price; // DEFAULT PRICE 
     }
+    console.log(listCards);
     reloadCard();
 }
-function reloadCard(){
+
+function reloadCard() {
     listCard.innerHTML = '';
     let count = 0;
     let totalPrice = 0;
-    listCards.forEach((value, key)=>{
-        totalPrice = totalPrice + value.price;
-        count = count + value.quantity;
-        if(value != null){
+    listCards.forEach((value, key) => {
+        totalPrice += value.price;
+        count += value.quantity;
+        if (value != null) {
             let newDiv = document.createElement('li');
+            newDiv.classList.add('cartinfo');
             newDiv.innerHTML = `
                 <div><img src="img/image/${value.image}"/></div>
-                <div>${value.name}</div>
+                <div class="prodname">${value.name}</div>
                 <div>${value.price.toLocaleString()}</div>
-                <div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                    <div class="count">${value.quantity}</div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-                </div>`;
-                listCard.appendChild(newDiv);
+                <div class="sizebut" >
+                    <select onchange="changeSize(${key}, this.value)">
+                        <option value="38" ${value.size === '38' ? 'selected' : ''}>38</option>
+                        <option value="39" ${value.size === '39' ? 'selected' : ''}>39</option>
+                        <option value="40" ${value.size === '40' ? 'selected' : ''}>40</option>
+                        <option value="41" ${value.size === '41' ? 'selected' : ''}>41</option>
+                    </select>
+                </div>
+                    <div class="quantity-section">
+                        <button id='leftbut' onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                        <div class="count">${value.quantity}</div>
+                        <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                    </div>
+                `;
+            listCard.appendChild(newDiv);
+            console.log(value.price)
         }
-    })
+    });
     total.innerText = totalPrice.toLocaleString();
     quantity.innerText = count;
 }
-function changeQuantity(key, quantity){
-    if(quantity == 0){
-        delete listCards[key];
-    }else{
-        listCards[key].quantity = quantity;
-        listCards[key].price = quantity * products[key].price;
+
+
+
+  
+  function changeQuantity(key, quantity) {
+    if (quantity == 0) {
+      delete listCards[key];
+    } else {
+      listCards[key].quantity = quantity;
+      listCards[key].price = quantity * products[key].price; // Update price based on quantity
     }
     reloadCard();
-}
+  }
 
-let scrollpay = document.getElementById('payment');
-total.onclick = () => {
-    let anchor = document.createElement('a');
-    payment.innerHTML = '';
-    console.log("Utin")
-    let newDiv = document.createElement('div');
-    newDiv.innerHTML = 
+total.onclick = () =>  {
+    var overlay = document.getElementById("overlay");
+    overlay.style.display = "block";
+    
+    setTimeout(function() {
+      overlay.style.display = "none";
+      showModal();
+    }, 2000);
+  }
+
+  function showModal() {
+    modal.style.display = "block";
+  }
+
+  const receiptContainer = document.getElementById('receiptContainer');
+  function checkOut() {
+    overlay.style.display = "block";
+    
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  function showreceipt(){
+    receiptContainer.style.display ="block";
+    modal.style.display = "none";
+    setTimeout(function() {
+        const receipt = generateReceipt();
+        receiptContainer.innerHTML = receipt;
+      }, 1000);
+    
+  }
+
+  function closereceipt(){
+    receiptContainer.style.display = "none";
+    location.reload();
+  }
+
+
+  function generateReceipt() {
+    let receiptContent = '';
+    let totalPrice = 0;
+    let totalCount = 0;
   
-    `<div class="container2">
+    listCards.forEach((value) => {
+      const itemTotal = value.defaultPrice * value.quantity; // Calculate item subtotal using default price and quantity
+      receiptContent += `
+        <div class="receipt-item">
+          <div class="receipt-name">${value.name}</div>
+          <div class="receipt-quantity">Quantity: ${value.quantity}</div>
+          <div class="receipt-price">Price: ₱${value.defaultPrice.toLocaleString()}</div> <!-- Use default price here -->
+          <div class="receipt-subtotal">Subtotal: ₱${itemTotal.toLocaleString()}</div> <!-- Use item subtotal here -->
+        </div>
+      `;
+      totalPrice += itemTotal;
+      totalCount += value.quantity;
+    });
+  
+    const receipt = `
+      <div class="receipt">
+        <div class="receipt-header">
+          <h2>Receipt</h2>
+          <p>Date: ${new Date().toLocaleDateString()}</p>
+          <span class="close" onclick="closereceipt()">&times;</span>
+        </div>
+        <div class="receipt-items">
+          ${receiptContent}
+        </div>
+        <div class="receipt-total">
+          <div class="receipt-total-quantity">Total Quantity: ${totalCount}</div>
+          <div class="receipt-total-price">Total Price: ₱${totalPrice.toLocaleString()}</div>
+        </div>
+      </div>
+    `;
+    return receipt;
+  }
 
-        <form action="">
+ const sub = document.querySelector('.sub');
+ 
 
-            <div class="rowCo">
 
-                <div class="colCo">
 
-                    <h3 class="title">billing address</h3>
 
-                    <div class="inputBox">
-                        <span>full name :</span>
-                        <input type="text" placeholder="john deo">
-                    </div>
-                    <div class="inputBox">
-                        <span>email :</span>
-                        <input type="email" placeholder="example@example.com">
-                    </div>
-                    <div class="inputBox">
-                        <span>address :</span>
-                        <input type="text" placeholder="room - street - locality">
-                    </div>
-                    <div class="inputBox">
-                        <span>city :</span>
-                        <input type="text" placeholder="mumbai">
-                    </div>
 
-                    <div class="flex">
-                        <div class="inputBox">
-                            <span>state :</span>
-                            <input type="text" placeholder="india">
-                        </div>
-                        <div class="inputBox">
-                            <span>zip code :</span>
-                            <input type="text" placeholder="123 456">
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="colCo">
-
-                    <h3 class="title">payment</h3>
-
-                    <div class="inputBox">
-                        <span>cards accepted :</span>
-                        <img src="img/card_img.png" alt="">
-                    </div>
-                    <div class="inputBox">
-                        <span>name on card :</span>
-                        <input type="text" placeholder="mr. john deo">
-                    </div>
-                    <div class="inputBox">
-                        <span>credit card number :</span>
-                        <input type="number" placeholder="1111-2222-3333-4444">
-                    </div>
-                    <div class="inputBox">
-                        <span>exp month :</span>
-                        <input type="text" placeholder="january">
-                    </div>
-
-                    <div class="flex">
-                        <div class="inputBox">
-                            <span>exp year :</span>
-                            <input type="number" placeholder="2022">
-                        </div>
-                        <div class="inputBox">
-                            <span>CVV :</span>
-                            <input type="text" placeholder="1234">
-                        </div>
-                    </div>
-
-                </div>
-        
-            </div>
-
-            <input type="submit" value="proceed to checkout" class="submit-btn">
-
-        </form>
-
-    </div>`;
-
-    payment.append(newDiv);
-}

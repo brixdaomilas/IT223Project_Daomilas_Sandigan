@@ -25,7 +25,7 @@ span{
     border: none;
     text-decoration: none;
     text-transform: uppercase;
-    transition: all .2s linear;
+    
 }
 html{
     font-size: 60%;
@@ -181,7 +181,9 @@ section{
     cursor: pointer;
     background: #fff;
     padding: .8rem 3rem;
+
 }
+
 .btn:hover{
     background-color: orange;
     color: white;
@@ -324,6 +326,7 @@ section{
     display: none;
     align-items: center;
     justify-content: center;
+    z-index: 99999;
  }
  
  .products-preview .preview{
@@ -502,6 +505,7 @@ section{
     background: #2ecc71;
   }
 
+
 /* end product  */
 .featured .row{
     display: flex;
@@ -513,6 +517,10 @@ section{
     padding: 2rem;
     align-items: center;
     margin: 1.5rem 0;
+    text-align: justify;
+}
+.featured .row a{
+    color: black;
 }
 .featured .row .content{
     flex: 1 1 40rem;
@@ -572,6 +580,140 @@ section{
     color: orange;
     text-decoration: line-through;
 }
+
+.close {
+    margin-right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 85%;
+    z-index: 999999;
+}
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 3rem 12%;
+    z-index: 2;
+
+  }
+
+.overlay .rowM{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    background: #f9f9f9;
+    padding: 2rem;
+    align-items: center;
+    margin: 15rem 0;
+    box-shadow: 0 5px 10px rgba(0,0,0,.5);
+}
+.overlay .rowM .content{
+    flex: 1 1 40rem;
+
+}
+.overlay .rowM a {
+    color: black;
+}
+.overlay .rowM.active{
+    display: flex;
+}
+.overlay .rowM #sizetitle{
+    font-size: 2rem;
+    margin-top: 2rem;
+    
+}
+
+.overlay .rowM .image-container1{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex: 1 1 50rem;
+}
+
+.overlay .rowM .image-container1 .small-image1{
+    width: 20%;
+}
+.overlay .rowM .image-container1 .big-image1{
+    width: 80%;
+    padding: 1rem;
+}
+.overlay .rowM .image-container1 .small-image1 img{
+    width: 100%;
+    padding: 1rem;
+    border: .1rem solid rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+.overlay .rowM .image-container1 .small-image1 img:hover{
+    background: #ccc;
+}
+.overlay .rowM .image-container1 .big-image1 img{
+    width: 100%;
+}
+.overlay .rowM .image-container1 .big-image1 img:hover{
+    transform: scale(1.05);
+}
+.overlay .rowM .content h3{
+    font-size: 2.5rem;
+    color: #000;
+}
+.overlay .rowM .content .stars i{
+    font-size: 1.7rem;
+    color: orange;
+    padding: .5rem 0;
+}
+.overlay .rowM .content .stars i:hover{
+    scale: 1.2;
+}
+.overlay .rowM .content p{
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+}
+.overlay .rowM .content .price{
+    font-size: 2.5rem;
+    color: #000;
+    font-weight: bolder;
+}
+.overlay .rowM .content .price span{
+    font-size: 1.5rem;
+    color: orange;
+    text-decoration: line-through;
+}
+.overlay .rowM .size{
+    display: flex;
+}
+.overlay .rowM .size .square{
+    padding: 5px 10px;
+    background-color: #D3D3D3;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 13;
+    cursor: pointer;
+    
+}
+
+.overlay .rowM .size .square:hover{
+    background-color: #949494;
+
+}
+.overlay .rowM .btn{
+    margin-top: 1.5rem;
+}
+
 /* end featured  */
 .blog .box-container{
     display: flex;
@@ -593,9 +735,11 @@ section{
     width: 15rem;
     margin: 1rem 0;
     border: 4px solid #ddd;
+
 }
 .blog .box-container .box img:hover{
    transform: scale(1.2);
+
 }
 .blog .box-container .box h3{
     font-size: 2.5rem;
@@ -615,6 +759,7 @@ section{
 .news{
     padding-top: .5rem;
     padding-bottom: .5rem;
+    margin-bottom: 10px;
 }
 .news .content{
     text-align: center;
@@ -653,13 +798,6 @@ section{
     border-radius: none;
 }
 /* end news  */
-.cridet .box{
-    padding: .1rem;
-    text-align: center;
-}
-.cridet .box h3{
-    font-size: 2rem;
-}
 
 
 footer{
@@ -814,7 +952,10 @@ footer{
   .bottom center a:hover{
     text-decoration: underline;
   }
-  @media screen and (max-width: 900px) {
+
+/* Responsive  */
+
+@media screen and (max-width: 900px) {
     footer{
       position: relative;
       bottom: 0px;
@@ -827,39 +968,7 @@ footer{
       margin: 5px 0;
     }
   }
-/* Responsive  */
 
-@media (max-width: 1140px) {
-   
-    .footer-distributed .footer-left, .footer-distributed ,.footer-right,.footer-company-about{
-        display: block;
-        margin-bottom: 40px;
-        width: 100%;
-        text-align: center;
-   
-    }
-    .footer-distributed .footer-left{
-        text-align: center;
-        width: 100%;
-        
-    }
-    .footer-distributed .footer-center i {
-      
-    }
-    .footer-distributed .footer-center{
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        margin-bottom: 40px;
-        width: 100%;
-   
-    }
-    
-    .footer-distributed .footer-company-about{
-        text-align: center;
-    }
-    
-}       
 
 @media (max-height:800px) {
     footer {
